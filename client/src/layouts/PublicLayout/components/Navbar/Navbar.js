@@ -38,21 +38,21 @@ class Navbar extends Component {
           })}>
           <Link className={classes.logoLink} to="/">
             <Typography className={classes.logo} variant="h2">
-              Cinema +
+              tokyFoods
             </Typography>
           </Link>
           <div className={classes.navLinks}>
             <Link className={classes.navLink} to="/">
               Home
             </Link>
-            <Link className={classes.navLink} to="/movie/category/nowShowing">
-              Now Showing
+            <Link className={classes.navLink} to="/product/category/nowReady">
+              Ready Now
             </Link>
-            <Link className={classes.navLink} to="/movie/category/comingSoon">
-              Coming Soon
+            <Link className={classes.navLink} to="/product/category/readyLater">
+              Ready Later
             </Link>
-            <Link className={classes.navLink} to="/cinemas">
-              Cinemas
+            <Link className={classes.navLink} to="/farms">
+              Farms
             </Link>
           </div>
 
@@ -116,7 +116,7 @@ class Navbar extends Component {
             [classes.nav]: true
           })}>
           <div className={classes.navContent}>
-            <div className={classes.currentPageShadow}>Movies</div>
+            <div className={classes.currentPageShadow}>Farm Products</div>
             <ul
               className={classes.innerNav}
               onClick={() => this.setState({ showMenu: !this.state.showMenu })}>
@@ -128,20 +128,20 @@ class Navbar extends Component {
               <li className={classes.innerNavListItem}>
                 <Link
                   className={classes.innerNavLink}
-                  to="/movie/category/nowShowing">
-                  Now Showing
+                  to="/product/category/nowReady">
+                  Ready Now
                 </Link>
               </li>
               <li className={classes.innerNavListItem}>
                 <Link
                   className={classes.innerNavLink}
-                  to="/movie/category/comingSoon">
-                  Coming Soon
+                  to="/product/category/readyLater">
+                  Ready Later
                 </Link>
               </li>
               <li className={classes.innerNavListItem}>
-                <Link className={classes.innerNavLink} to="/cinemas">
-                  Cinemas
+                <Link className={classes.innerNavLink} to="/farms">
+                  farms
                 </Link>
               </li>
             </ul>

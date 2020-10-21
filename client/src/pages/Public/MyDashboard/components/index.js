@@ -1,1 +1,1 @@
-export { default as MyReservationTable } from './MyReservationTable';
+export { default as MyReserveTable } from './MyReserveTable';

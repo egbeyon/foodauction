@@ -47,7 +47,7 @@ const UsersByDevice = props => {
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [26, 15, 59],
         backgroundColor: [
           theme.palette.primary.main,
           theme.palette.error.main,
@@ -86,7 +86,7 @@ const UsersByDevice = props => {
   const devices = [
     {
       title: 'Desktop',
-      value: '63',
+      value: '26',
       icon: <LaptopMacIcon />,
       color: theme.palette.primary.main
     },
@@ -98,7 +98,7 @@ const UsersByDevice = props => {
     },
     {
       title: 'Mobile',
-      value: '23',
+      value: '59',
       icon: <PhoneIphoneIcon />,
       color: theme.palette.warning.main
     }

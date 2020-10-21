@@ -13,26 +13,26 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Checkin(props) {
-  const reservationId = props.match.params.reservationId;
-  const [reservation, setReservation] = useState(null);
+  const reserveId = props.match.params.reserveId;
+  const [reserve, setReserve] = useState(null);
 
   useEffect(() => {
-    checkinReservations(reservationId);
-  }, [reservationId]);
+    checkinReserves(reserveId);
+  }, [reserveId]);
 
-  const checkinReservations = async id => {
+  const checkinReserves = async id => {
     try {
       const token = localStorage.getItem('jwtToken');
-      const url = '/reservations/checkin/' + id;
+      const url = '/reserves/checkin/' + id;
       const response = await fetch(url, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
-      const reservation = await response.json();
+      const reserve = await response.json();
       if (response.ok) {
-        setReservation(reservation);
+        setReserve(reserve);
       }
     } catch (error) {
       console.log(error);
@@ -46,9 +46,9 @@ function Checkin(props) {
         <Typography className={classes.title} variant="h2" color="inherit">
           Check In
         </Typography>
-        {reservation && reservation.checkin ? (
+        {reserve && reserve.checkin ? (
           <Typography variant="body1" color="primary" align="center">
-            Check in for user: {reservation.username} was successful.
+            Check in for user: {reserve.username} was successful.
           </Typography>
         ) : (
           <Typography variant="body1" color="error" align="center">

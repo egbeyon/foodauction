@@ -2,19 +2,20 @@ import { combineReducers } from 'redux';
 import alert from './alert';
 import auth from './auth';
 import users from './users';
-import movies from './movies';
-import cinemas from './cinemas';
-import reservations from './reservations';
-import showtimes from './showtimes';
+import hotbuys from './hotbuys';
 import checkout from './checkout';
+import farms from './farms';
+import products from './products'
+import reserves from './reserve'
 
 export default combineReducers({
   alertState: alert,
   authState: auth,
   userState: users,
-  movieState: movies,
-  cinemaState: cinemas,
-  reservationState: reservations,
-  showtimeState: showtimes,
-  checkoutState: checkout
+  reserveState: reserves,
+  hotbuyState: hotbuys,
+  checkoutState: checkout,
+  farmState: farms,
+  productState: products
+
 });

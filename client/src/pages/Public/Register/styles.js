@@ -17,6 +17,7 @@ export default theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundImage: 'url(https://pbs.twimg.com/media/DokP1MgX0AE5tIi.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',

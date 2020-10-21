@@ -1,0 +1,2 @@
+export const GET_RESERVES = 'GET_RESERVES';
+export const CREATE_RESERVE= 'CREATE_RESERVE'

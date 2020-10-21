@@ -2,68 +2,50 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles, Box, Grid } from '@material-ui/core';
-import {
-  getMovies,
-  getShowtimes,
-  getMovieSuggestion
-} from '../../../store/actions';
-import MovieCarousel from '../components/MovieCarousel/MovieCarousel';
-import MovieBanner from '../components/MovieBanner/MovieBanner';
+import { getProducts } from '../../../store/actions/products';
+import { getHotbuys } from '../../../store/actions/hotbuys';
+import ProductCarousel from '../components/ProductCarousel/ProductCarousel';
+import ProductBanner from '../components/ProductBanner/ProductBanner';
 import styles from './styles';
 
 class HomePage extends Component {
   componentDidMount() {
     const {
-      movies,
-      showtimes,
-      suggested,
-      getMovies,
-      getShowtimes,
-      getMovieSuggestion,
-      user
+      products,
+      hotbuys,
+      getProducts,
+      getHotbuys
     } = this.props;
-    if (!movies.length) getMovies();
-    if (!showtimes.length) getShowtimes();
-    if (user) {
-      if (!suggested.length) getMovieSuggestion(user.username);
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.user !== prevProps.user) {
-      this.props.user &&
-        this.props.getMovieSuggestion(this.props.user.username);
-    }
+    if (!products.length) getProducts();
+    if (!hotbuys.length) getHotbuys();  
   }
 
   render() {
     const {
       classes,
-      randomMovie,
-      comingSoon,
-      nowShowing,
-      suggested
-    } = this.props;
+      randomProduct,
+      randomHotbuy,
+      readyLater,
+      nowReady,
+      hotbuys
+    } = this.props; 
+    console.log(randomHotbuy)
     return (
       <Fragment>
-        <MovieBanner movie={randomMovie} height="85vh" />
+        <ProductBanner product={randomProduct} hotbuy={randomHotbuy} hotbuys={hotbuys} height="85vh" />
+        <br />
         <Box height={60} />
-        <MovieCarousel
+        <ProductCarousel
           carouselClass={classes.carousel}
-          title="Suggested for you"
-          movies={suggested}
+          title="Available"
+          to="/product/category/nowReady"
+          products={nowReady}
         />
-        <MovieCarousel
+        <ProductCarousel
           carouselClass={classes.carousel}
-          title="Now Showing"
-          to="/movie/category/nowShowing"
-          movies={nowShowing}
-        />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Coming Soon"
-          to="/movie/category/comingSoon"
-          movies={comingSoon}
+          title="Book your Spot"
+          to="/product/category/readyLater"
+          products={readyLater}
         />
         {false && (
           <Grid container style={{ height: 500 }}>
@@ -80,22 +62,23 @@ HomePage.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  movies: PropTypes.array.isRequired,
-  latestMovies: PropTypes.array.isRequired
+  products: PropTypes.array.isRequired,
+  hotbuys: PropTypes.array.isRequired,
+  latestProducts: PropTypes.array.isRequired
 };
 
-const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
-  movies: movieState.movies,
-  randomMovie: movieState.randomMovie,
-  latestMovies: movieState.latestMovies,
-  comingSoon: movieState.comingSoon,
-  nowShowing: movieState.nowShowing,
-  showtimes: showtimeState.showtimes,
-  suggested: movieState.suggested,
+const mapStateToProps = ({ productState, hotbuyState, authState }) => ({
+  products: productState.products,
+  randomProduct: productState.randomProduct,
+  randomHotbuy: hotbuyState.randomHotbuy,
+  latestProducts: productState.latestProducts,
+  readyLater: productState.readyLater,
+  nowReady: productState.nowReady,
+  hotbuys: hotbuyState.hotbuys,
   user: authState.user
 });
 
-const mapDispatchToProps = { getMovies, getShowtimes, getMovieSuggestion };
+const mapDispatchToProps = { getProducts, getHotbuys };
 
 export default connect(
   mapStateToProps,

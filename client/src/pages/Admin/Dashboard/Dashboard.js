@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import { withStyles, Grid } from '@material-ui/core';
 import {
   TotalUsers,
-  TotalCinemas,
-  TotalMovies,
+  TotalFarms,
+  TotalProducts,
   TotalReservations,
-  BestMovies,
+  BestProducts,
   UsersByDevice
 } from './components';
 import {
   getUsers,
-  getCinemas,
-  getMovies,
-  getReservations
+  getFarms,
+  getProducts,
+  getReserves
 } from '../../../store/actions';
 
 const styles = theme => ({
@@ -26,24 +26,24 @@ const styles = theme => ({
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getUsers();
-    this.props.getCinemas();
-    this.props.getMovies();
-    this.props.getReservations();
+    this.props.getFarms();
+    this.props.getProducts();
+    this.props.getReserves();
   }
 
-  getBestMovies = (reservations, movies, total = 5) => {
-    const reservationCounter = reservations.map(reservation => ({
-      movieId: reservation.movieId,
-      count: reservations.filter(r => r.movieId === reservation.movieId).length
+  getBestProducts = (reserves, products, total = 5) => {
+    const reserveCounter = reserves.map(reserve => ({
+      productId: reserve.productId,
+      count: reserves.filter(r => r.productId === reserve.productId).length
     }));
 
     const result = [];
     const map = new Map();
-    for (const item of reservationCounter) {
-      if (!map.has(item.movieId)) {
-        map.set(item.movieId, true); // set any value to Map
+    for (const item of reserveCounter) {
+      if (!map.has(item.productId)) {
+        map.set(item.productId, true); // set any value to Map
         result.push({
-          movieId: item.movieId,
+          productId: item.productId,
           count: item.count
         });
       }
@@ -52,13 +52,13 @@ class Dashboard extends Component {
       .sort((a, b) => b.count - a.count)
       .slice(0, total)
       .map(res => ({
-        movie: movies.find(movie => movie._id === res.movieId),
+        product: products.find(product => product._id === res.productId),
         count: res.count
       }));
   };
 
   render() {
-    const { classes, users, cinemas, movies, reservations } = this.props;
+    const { classes, users, farms, products, reserves } = this.props;
 
     return (
       <div className={classes.root}>
@@ -67,17 +67,17 @@ class Dashboard extends Component {
             <TotalUsers users={users.length} />
           </Grid>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TotalCinemas cinemas={cinemas.length} />
+            <TotalFarms farms={farms.length} />
           </Grid>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TotalMovies movies={movies.length} />
+            <TotalProducts products={products.length} />
           </Grid>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TotalReservations reservations={reservations.length} />
+            <TotalReservations reserves={reserves.length} />
           </Grid>
           <Grid item lg={8} md={12} xl={9} xs={12}>
-            <BestMovies
-              bestMovies={this.getBestMovies(reservations, movies, 5)}
+            <BestProducts
+              bestProducts={this.getBestProducts(reserves, products, 5)}
             />
           </Grid>
           <Grid item lg={4} md={6} xl={3} xs={12}>
@@ -91,20 +91,20 @@ class Dashboard extends Component {
 
 const mapStateToProps = ({
   userState,
-  cinemaState,
-  movieState,
-  reservationState
+  farmState,
+  productState,
+  reserveState
 }) => ({
   users: userState.users,
-  cinemas: cinemaState.cinemas,
-  movies: movieState.movies,
-  reservations: reservationState.reservations
+  farms: farmState.farms,
+  products: productState.products,
+  reserves: reserveState.reserves
 });
 const mapDispatchToProps = {
   getUsers,
-  getCinemas,
-  getMovies,
-  getReservations
+  getFarms,
+  getProducts,
+  getReserves
 };
 export default connect(
   mapStateToProps,

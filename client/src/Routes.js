@@ -8,10 +8,10 @@ import { AdminLayout, PublicLayout } from './layouts';
 
 // Admin
 const DashboardPage = lazy(() => import('./pages/Admin/Dashboard'));
-const MovieList = lazy(() => import('./pages/Admin/MovieList'));
-const CinemaList = lazy(() => import('./pages/Admin/CinemaList'));
-const ShowtimeList = lazy(() => import('./pages/Admin/ShowtimeList'));
-const ReservationList = lazy(() => import('./pages/Admin/ReservationList'));
+const ProductList = lazy(() => import('./pages/Admin/ProductList'));
+const FarmList = lazy(() => import('./pages/Admin/FarmList'));
+const HotbuyList = lazy(() => import('./pages/Admin/HotbuyList'));
+const ReserveList = lazy(() => import('./pages/Admin/ReserveList'));
 const User = lazy(() => import('./pages/Admin/User'));
 const Account = lazy(() => import('./pages/Admin/Account'));
 
@@ -21,13 +21,16 @@ const Login = lazy(() => import('./pages/Public/Login'));
 
 // Public
 const HomePage = lazy(() => import('./pages/Public/HomePage'));
-const MoviePage = lazy(() => import('./pages/Public/MoviePage'));
 const MyDashboard = lazy(() => import('./pages/Public/MyDashboard'));
-const MovieCategoryPage = lazy(() =>
-  import('./pages/Public/MovieCategoryPage')
+
+const ProductPage = lazy(() => import('./pages/Public/ProductPage'));
+const ProductCategoryPage = lazy(() =>
+  import('./pages/Public/ProductCategoryPage')
 );
-const CinemasPage = lazy(() => import('./pages/Public/CinemasPage'));
-const BookingPage = lazy(() => import('./pages/Public/BookingPage'));
+
+const OrderPage = lazy(() => import('./pages/Public/OrderPage'));
+
+const FarmsPage = lazy(() => import('./pages/Public/FarmsPage'));
 
 const Checkin = lazy(() => import('./pages/Public/Checkin'));
 
@@ -60,29 +63,30 @@ const Routes = () => {
           />
           <WithLayoutRoute
             exact
-            path="/cinemas"
+            path="/farms"
             layout={PublicLayout}
-            component={CinemasPage}
+            component={FarmsPage}
           />
           <WithLayoutRoute
             exact
-            path="/movie/category/:category"
+            path="/product/category/:category"
             layout={PublicLayout}
-            component={MovieCategoryPage}
+            component={ProductCategoryPage}
           />
+          
           <WithLayoutRoute
             exact
-            path="/movie/:id"
+            path="/product/:id"
             layout={PublicLayout}
             layoutProps={{ withFooter: false }}
-            component={MoviePage}
+            component={ProductPage}
           />
           <WithLayoutRoute
             exact
-            path="/movie/booking/:id"
+            path="/product/booking/:id"
             layout={PublicLayout}
             layoutProps={{ withFooter: false }}
-            component={BookingPage}
+            component={OrderPage}
           />
           <ProtectedRoute
             exact
@@ -98,27 +102,27 @@ const Routes = () => {
           />
           <ProtectedRoute
             exact
-            path="/admin/showtimes"
+            path="/admin/hotbuys"
             layout={AdminLayout}
-            component={ShowtimeList}
+            component={HotbuyList}
           />
           <ProtectedRoute
             exact
-            path="/admin/reservations"
+            path="/admin/reserves"
             layout={AdminLayout}
-            component={ReservationList}
+            component={ReserveList}
           />
           <ProtectedRoute
             exact
-            path="/admin/cinemas"
+            path="/admin/farms"
             layout={AdminLayout}
-            component={CinemaList}
+            component={FarmList}
           />
           <ProtectedRoute
             exact
-            path="/admin/movies"
+            path="/admin/products"
             layout={AdminLayout}
-            component={MovieList}
+            component={ProductList}
           />
           <ProtectedRoute
             exact

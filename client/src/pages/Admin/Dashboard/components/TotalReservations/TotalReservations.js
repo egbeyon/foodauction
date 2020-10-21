@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const TotalReservations = props => {
-  const { className, reservations } = props;
+  const { className, reserves } = props;
 
   const classes = useStyles();
 
@@ -48,7 +48,7 @@ const TotalReservations = props => {
               TOTAL RESERVATIONS
             </Typography>
             <Typography color="inherit" variant="h3">
-              {reservations}
+              {reserves}
             </Typography>
           </Grid>
           <Grid item>

@@ -1,0 +1,7 @@
+export const GET_HOTBUYS = 'GET_HOTBUYS';
+export const ADD_HOTBUY = 'ADD_HOTBUY';
+export const UPDATE_HOTBUY = 'UPDATE_HOTBUY';
+export const DELETE_HOTBUY = 'DELETE_HOTBUY';
+export const TOGGLE_DIALOG = 'TOGGLE_DIALOG';
+export const SELECT_HOTBUYS = 'SELECT_HOTBUYS';
+export const SELECT_ALL_HOTBUYS = 'SELECT_ALL_HOTBUYS';

@@ -1,8 +1,8 @@
-export { default as LatestMovieList } from './LatestMovieList/LatestMovieList';
-export { default as MovieBanner } from './MovieBanner/MovieBanner';
-export { default as MovieCard } from './MovieCard/MovieCard';
-export { default as MovieCardSimple } from './MovieCardSimple/MovieCardSimple';
-export { default as MovieCarousel } from './MovieCarousel/MovieCarousel';
+export { default as LatestProductList } from './LatestProductList/LatestProductList';
+export { default as ProductBanner } from './ProductBanner/ProductBanner';
+export { default as ProductCard } from './ProductCard/ProductCard';
+export { default as ProductCardSimple } from './ProductCardSimple/ProductCardSimple';
+export { default as ProductCarousel } from './ProductCarousel/ProductCarousel';
 export {
-  default as ResponsiveMovieCard
-} from './ResponsiveMovieCard/ResponsiveMovieCard';
+  default as ResponsiveProductCard
+} from './ResponsiveProductCard/ResponsiveProductCard';

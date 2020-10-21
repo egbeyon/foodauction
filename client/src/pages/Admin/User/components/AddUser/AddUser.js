@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withStyles, Typography } from '@material-ui/core';
 import { Button, TextField, MenuItem } from '@material-ui/core';
 import styles from './styles';
-import { addShowtime, updateShowtime } from '../../../../../store/actions';
+import { addHotbuy, updateHotbuy } from '../../../../../store/actions';
 
 class AddUser extends Component {
   state = {
@@ -182,13 +182,13 @@ AddUser.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({ movieState, cinemaState }) => ({
-  movies: movieState.movies,
-  nowShowing: movieState.nowShowing,
-  cinemas: cinemaState.cinemas
+const mapStateToProps = ({ productState, farmState }) => ({
+  products: productState.products,
+  nowReady: productState.nowReady,
+  farms: farmState.farms
 });
 
-const mapDispatchToProps = { addShowtime, updateShowtime };
+const mapDispatchToProps = { addHotbuy, updateHotbuy };
 
 export default connect(
   mapStateToProps,

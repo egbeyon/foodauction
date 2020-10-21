@@ -1,18 +1,29 @@
 const express = require('express');
 const path = require('path');
 
+require('dotenv').config()
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({ path: path.join(__dirname, '../.env') });
 }
 
 require('./db/mongoose');
 
+// const Nexmo = require('nexmo')
+// const nexmo_key = process.env.NEXMO_KEY
+// const nexmo_secret = process.env.NEXMO_SECRET
+
+// const nexmo = new Nexmo({
+//   apiKey: nexmo_key,
+//   apiSecret: nexmo_secret
+// })
+
 // Routes
 const userRouter = require('./routes/users');
-const movieRouter = require('./routes/movies');
-const cinemaRouter = require('./routes/cinema');
-const showtimeRouter = require('./routes/showtime');
-const reservationRouter = require('./routes/reservation');
+const productRouter = require('./routes/products');
+const farmRouter = require('./routes/farm');
+const hotbuyRouter = require('./routes/hotbuy');
+const reserveRouter = require('./routes/reserve');
 const invitationsRouter = require('./routes/invitations');
 
 const app = express();
@@ -43,10 +54,10 @@ app.use(function(req, res, next) {
 });
 app.use(express.json());
 app.use(userRouter);
-app.use(movieRouter);
-app.use(cinemaRouter);
-app.use(showtimeRouter);
-app.use(reservationRouter);
+app.use(productRouter);
+app.use(farmRouter);
+app.use(hotbuyRouter);
+app.use(reserveRouter);
 app.use(invitationsRouter);
 
 // app.get('/api/test', (req, res) => res.send('Hello World'))
