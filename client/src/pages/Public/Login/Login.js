@@ -4,7 +4,6 @@ import { withStyles, Grid } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 import LoginForm from './components/LoginForm';
-import img from '../../../assets/1.jpg'
 
 const styles = theme => ({
   root: {
