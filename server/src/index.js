@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors')
 
 require('dotenv').config()
 
@@ -27,7 +28,8 @@ const reserveRouter = require('./routes/reserve');
 const invitationsRouter = require('./routes/invitations');
 
 const app = express();
-app.disable('x-powered-by');
+
+app.use(cors())
 const port = process.env.PORT || 8080;
 
 // Serve static files from the React app
