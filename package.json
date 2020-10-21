@@ -1,5 +1,5 @@
 {
-  "name": "movie-plus",
+  "name": "tokifoods",
   "version": "1.0.0",
   "description": "",
   "main": "server/src/index.js",
@@ -14,15 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/georgesimos/Movie-app.git"
+    "url": "git+https://github.com/egbeyon/tokifoods"
   },
   "keywords": [],
-  "author": "George Simos <georgesimos.com>",
+  "author": "Segbeyon and George Simos",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/georgesimos/Movie-app/issues"
-  },
-  "homepage": "https://github.com/georgesimos/Movie-app#readme",
+  
+  
   "dependencies": {
     "concurrently": "^5.0.0"
   },
