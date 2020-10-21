@@ -1,8 +1,8 @@
 {
-  "name": "cinema-plus-client",
+  "name": "tokifoods-client",
   "version": "0.1.0",
   "private": true,
-  "author": "George Simos <georgesimos.com>",
+  "author": "Segbeyon and George Simos",
   "license": "MIT",
   "dependencies": {
     "@date-io/moment": "1.3.11",
