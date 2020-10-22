@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const uri = process.env.MONGODB_URI
 console.log(uri)
-mongoose.connect(uri, {
+mongoose.connect('mongodb+srv://segbeyon:segbeyon8516@gardens-and-mirrors.erdu2.mongodb.net/goMarket?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
