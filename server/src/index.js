@@ -1,23 +1,24 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors')
-
+const mongoose = require('mongoose');
 require('dotenv').config()
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({ path: path.join(__dirname, '../.env') });
 }
 
-require('./db/mongoose');
-
-// const Nexmo = require('nexmo')
-// const nexmo_key = process.env.NEXMO_KEY
-// const nexmo_secret = process.env.NEXMO_SECRET
-
-// const nexmo = new Nexmo({
-//   apiKey: nexmo_key,
-//   apiSecret: nexmo_secret
-// })
+const uri = process.env.MONGODB_URI
+console.log(uri)
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+})
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully");
+});
 
 // Routes
 const userRouter = require('./routes/users');
