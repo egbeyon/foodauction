@@ -9,7 +9,7 @@
   "scripts": {
     "start": "cd server && npm install && npm start",
     "client": "cd client && npm start",
-    "server": "cd server && npm run dev",
+    "server": "cd server && npm start",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
