@@ -55,7 +55,7 @@ const BestProducts = props => {
             Best 5<ArrowDropDownIcon />
           </Button>
         }
-        title="Best Movies"
+        title="Best Products"
       />
       <Divider />
       <CardContent>
