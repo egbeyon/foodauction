@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({ path: path.join(__dirname, '../.env') });
 }
 
-const MONGODB_URI = 'mongodb+srv://segbeyon:sebite8516@gardens-and-mirrors.erdu2.mongodb.net/goMarket?retryWrites=true&w=majority'
+const MONGODB_URI = 'MONGO_KEY'
 const uri = MONGODB_URI
 console.log(uri)
 mongoose.connect(uri, {
